@@ -34,7 +34,12 @@ installLink.addEventListener('click', async (event) => {
   }
 
   await installPrompt.prompt();
+  const { outcome } = await installPrompt.userChoice;
   installPrompt = null;
+
+  if (outcome === 'accepted') {
+    hideInstallLink();
+  }
 });
 
 window.addEventListener('appinstalled', hideInstallLink);
