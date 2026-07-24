@@ -4,6 +4,18 @@ const installLink = document.querySelector('#install-app');
 const installHelp = document.querySelector('#install-help');
 let installPrompt;
 
+function hideInstallLink() {
+  installLink.hidden = true;
+  installHelp.hidden = true;
+}
+
+if (
+  window.matchMedia('(display-mode: standalone)').matches
+  || window.navigator.standalone === true
+) {
+  hideInstallLink();
+}
+
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   navigator.serviceWorker.register('sw.js');
 }
@@ -24,6 +36,8 @@ installLink.addEventListener('click', async (event) => {
   await installPrompt.prompt();
   installPrompt = null;
 });
+
+window.addEventListener('appinstalled', hideInstallLink);
 
 function selectTab(selectedTab) {
   tabs.forEach((tab) => {
