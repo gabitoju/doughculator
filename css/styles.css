@@ -1,0 +1,199 @@
+:root {
+  color: #20134b;
+  background-color: #62d8ff;
+  font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background-image:
+    radial-gradient(circle, #fff46b 0 3px, transparent 4px),
+    radial-gradient(circle, #ff70ba 0 2px, transparent 3px);
+  background-position: 0 0, 14px 11px;
+  background-size: 28px 28px;
+}
+
+.app-shell {
+  width: min(100% - 2rem, 42rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 8vw, 5rem) 0;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.35rem;
+  color: #ff2c93;
+  font-family: Impact, 'Arial Black', sans-serif;
+  font-size: clamp(2.6rem, 10vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 0.9;
+  text-shadow: 3px 3px 0 #fff46b, 6px 6px 0 #20134b;
+  transform: rotate(-2deg);
+}
+
+.app-header p {
+  margin-bottom: 0;
+  color: #20134b;
+  font-weight: 700;
+  text-shadow: 1px 1px #ffffff;
+}
+
+.install-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 0.7rem;
+  border: 2px solid #20134b;
+  background: #fff46b;
+  color: #20134b;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #ff70ba;
+}
+
+.install-link:hover,
+.install-link:focus-visible {
+  background: #ff70ba;
+}
+
+.install-help {
+  margin: 0.9rem auto 0;
+  max-width: 26rem;
+  font-size: 0.9rem;
+}
+
+.calculator {
+  overflow: hidden;
+  border: 4px solid #20134b;
+  border-radius: 0;
+  background: #fffdf2;
+  box-shadow: 9px 9px 0 #20134b;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.55rem 0.55rem 0;
+  border-bottom: 4px solid #20134b;
+  background: #adf05a;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 3px solid #20134b;
+  border-bottom: 0;
+  border-radius: 0.7rem 0.7rem 0 0;
+  background: #fffdf2;
+  color: #20134b;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background: #fff46b;
+  transform: translateY(-0.15rem);
+}
+
+.tab:focus-visible {
+  position: relative;
+  outline: 4px solid #ff7a00;
+  outline-offset: -7px;
+}
+
+.tab[aria-selected='true'] {
+  background: #ff70ba;
+  color: #20134b;
+}
+
+.tab-panel {
+  min-height: 12rem;
+  padding: 2rem;
+  background-image: linear-gradient(45deg, #e8fcff 25%, transparent 25%);
+  background-size: 16px 16px;
+}
+
+.ingredient-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field label {
+  color: #20134b;
+  font-weight: 900;
+}
+
+.field input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.55rem;
+  border: 3px solid #20134b;
+  border-radius: 0;
+  background: #fffdf2;
+  color: #20134b;
+  font: inherit;
+}
+
+.ingredient-input {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ingredient-input > :first-child {
+  min-width: 0;
+}
+
+.percent-value,
+.ingredient-input > span {
+  flex: 0 0 auto;
+  color: #d41471;
+  font-weight: 900;
+}
+
+.field .percent-input {
+  flex: 0 1 4.5rem;
+  width: 4.5rem;
+  min-width: 0;
+}
+
+.field input:focus {
+  outline: 4px solid #ff7a00;
+  outline-offset: 1px;
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    width: min(100% - 1.25rem, 42rem);
+  }
+
+  .calculator {
+    box-shadow: 5px 5px 0 #20134b;
+  }
+
+  .ingredient-form {
+    grid-template-columns: 1fr;
+  }
+}

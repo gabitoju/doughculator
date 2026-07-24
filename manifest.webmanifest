@@ -1,0 +1,17 @@
+{
+  "name": "Doughculator",
+  "short_name": "Doughculator",
+  "description": "A dough weights and baker's percentages calculator.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#62d8ff",
+  "theme_color": "#62d8ff",
+  "icons": [
+    {
+      "src": "assets/doughculator-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

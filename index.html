@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Doughculator: a dough weights and baker's percentages calculator."
+    />
+    <title>Doughculator</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#62d8ff" />
+    <link rel="apple-touch-icon" href="assets/doughculator-icon.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1>Doughculator</h1>
+        <p>Dough weights and baker's percentages, made simple.</p>
+        <a id="install-app" class="install-link" href="#install">Add to home screen</a>
+        <p id="install-help" class="install-help" hidden aria-live="polite">
+          Use your browser's “Add to Home Screen” option to install Doughculator.
+        </p>
+      </header>
+
+      <section class="calculator" aria-label="Dough calculator type">
+        <div class="tabs" role="tablist" aria-label="Dough type">
+          <button
+            id="bread-tab"
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="bread-panel"
+          >
+            Bread
+          </button>
+          <button
+            id="pizza-tab"
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="pizza-panel"
+            tabindex="-1"
+          >
+            Pizza
+          </button>
+        </div>
+
+        <section
+          id="bread-panel"
+          class="tab-panel"
+          role="tabpanel"
+          aria-labelledby="bread-tab"
+        >
+          <form class="ingredient-form">
+            <div class="field">
+              <label for="bread-flour">Bread flour</label>
+              <div class="ingredient-input">
+                <input
+                  id="bread-flour"
+                  name="flour"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="1"
+                  value="450"
+                />
+                <input
+                  class="percent-input"
+                  id="bread-flour-percentage"
+                  name="breadFlourPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="90"
+                  aria-label="Bread flour percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="bread-wholewheat">Wholewheat</label>
+              <div class="ingredient-input">
+                <input
+                  id="bread-wholewheat"
+                  name="wholewheat"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="1"
+                  value="50"
+                />
+                <input
+                  class="percent-input"
+                  id="bread-wholewheat-percentage"
+                  name="wholewheatPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="10"
+                  aria-label="Wholewheat percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="bread-water">Water</label>
+              <div class="ingredient-input">
+                <input
+                  id="bread-water"
+                  name="water"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="1"
+                  value="375"
+                />
+                <input
+                  class="percent-input"
+                  id="bread-water-percentage"
+                  name="waterPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="75"
+                  aria-label="Water percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="bread-salt">Salt</label>
+              <div class="ingredient-input">
+                <input
+                  id="bread-salt"
+                  name="salt"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="10"
+                />
+                <input
+                  class="percent-input"
+                  id="bread-salt-percentage"
+                  name="saltPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="2"
+                  aria-label="Salt percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="bread-sourdough-yeast">Sourdough / Yeast</label>
+              <div class="ingredient-input">
+                <input
+                  id="bread-sourdough-yeast"
+                  name="sourdoughYeast"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="100"
+                />
+                <input
+                  class="percent-input"
+                  id="bread-sourdough-yeast-percentage"
+                  name="sourdoughYeastPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="20"
+                  aria-label="Sourdough or yeast percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="bread-dough-weight">Dough weight</label>
+              <input
+                id="bread-dough-weight"
+                name="doughWeight"
+                type="text"
+                inputmode="decimal"
+                min="0"
+                step="0.1"
+                value="1035"
+              />
+            </div>
+          </form>
+        </section>
+        <section
+          id="pizza-panel"
+          class="tab-panel"
+          role="tabpanel"
+          aria-labelledby="pizza-tab"
+          hidden
+        >
+          <form class="ingredient-form">
+            <div class="field">
+              <label for="pizza-flour">Flour</label>
+              <div class="ingredient-input">
+                <input
+                  id="pizza-flour"
+                  name="flour"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="1"
+                  value="500"
+                />
+                <span class="percent-value">100%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="pizza-water">Water</label>
+              <div class="ingredient-input">
+                <input
+                  id="pizza-water"
+                  name="water"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="1"
+                  value="300"
+                />
+                <input
+                  class="percent-input"
+                  id="pizza-water-percentage"
+                  name="waterPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="60"
+                  aria-label="Water percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="pizza-salt">Salt</label>
+              <div class="ingredient-input">
+                <input
+                  id="pizza-salt"
+                  name="salt"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="10"
+                />
+                <input
+                  class="percent-input"
+                  id="pizza-salt-percentage"
+                  name="saltPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="2"
+                  aria-label="Salt percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="pizza-yeast">Yeast</label>
+              <div class="ingredient-input">
+                <input
+                  id="pizza-yeast"
+                  name="yeast"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="2"
+                />
+                <input
+                  class="percent-input"
+                  id="pizza-yeast-percentage"
+                  name="yeastPercentage"
+                  type="text"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="0.4"
+                  aria-label="Yeast percentage"
+                />
+                <span aria-hidden="true">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="pizza-pies">Pies</label>
+              <input
+                id="pizza-pies"
+                name="pies"
+                type="text"
+                inputmode="numeric"
+                min="1"
+                step="1"
+                value="3"
+              />
+            </div>
+            <div class="field">
+              <label for="pizza-pie-weight">Pie weight</label>
+              <input
+                id="pizza-pie-weight"
+                name="pieWeight"
+                type="text"
+                inputmode="decimal"
+                min="0"
+                step="0.1"
+                value="270.7"
+              />
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script defer src="js/app.js"></script>
+  </body>
+</html>
